@@ -13,6 +13,8 @@ namespace Teilnehmer
         #region Attributes
 
         private double _speed;
+        private bool _active;
+
 
         #endregion
 
@@ -22,6 +24,11 @@ namespace Teilnehmer
         {
             get => _speed;
             set => _speed = value;
+        }
+        public bool Active
+        {
+            get => _active;
+            set => _active = value;
         }
 
         #endregion
@@ -36,18 +43,24 @@ namespace Teilnehmer
         {
         }
 
-        public Spieler(string name, double speed) : base(name)
+        public Spieler(string name, double speed, bool active) : base(name)
         {
             this.Speed = speed;
+            this.Active = active;
         }
 
         #endregion
 
         #region Methods
 
-        public double GiveSpeed()
+        public bool IsActive()
         {
-            return this.Speed;
+            return this.Active;
+        }
+
+        public void SwitchActive()
+        {
+            this.Active = !this.Active;
         }
 
         #endregion

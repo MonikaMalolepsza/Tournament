@@ -30,6 +30,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Controller.cs" />
     <Compile Include="Model\Mannschaft.cs" />
     <Compile Include="Model\Materialwart.cs" />
     <Compile Include="Model\Schiedsrichter.cs" />
@@ -38,10 +39,7 @@
     <Compile Include="Model\WeitereAufgaben.cs" />
     <Compile Include="main.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller" />
-    <Folder Include="View" />
+    <Compile Include="View\UserInterface.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

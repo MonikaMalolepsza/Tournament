@@ -1,4 +1,4 @@
-namespace Teilnehmer
+namespace Teilnehmer.View
 {
     public class UserInterface
     {

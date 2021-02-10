@@ -15,7 +15,9 @@ namespace Teilnehmer
         #region Attributes
 
         private List<Spieler> _team;
-        
+        private Trainer _trainer;
+
+
         #endregion
 
         #region Properties
@@ -25,24 +27,32 @@ namespace Teilnehmer
             get => _team;
             set => _team = value;
         }
+        public Trainer Trainer
+        {
+            get => _trainer;
+            set => _trainer = value;
+        }
 
         #endregion
 
         #region Constructors
 
-        public Mannschaft()
+        public Mannschaft(string name, Trainer t) : base(name)
         {
             Team = new List<Spieler>();
+            Trainer = t;
         }
-
-        public Mannschaft(string name, List<Spieler> list) : base(name)
-        {
-            this.Team = list;
-        }
+        
 
         #endregion
 
         #region Methods
+
+        public void NeueMietglied(Spieler spieler)
+        {
+            Team.Add(spieler);
+        }
+
         public string AusgabeMannschaftsInformationen()
         {
             string res = $"Mannschaft: {Name}\r\n";

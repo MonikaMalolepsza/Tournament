@@ -42,5 +42,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\UserInterface.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\data.sql" />
+    <Content Include="Database\docker-compose.yml" />
+    <Content Include="Database\turnierverwaltung_schema.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

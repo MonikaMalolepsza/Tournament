@@ -7,7 +7,9 @@
 //Beschreibung:
 //Aenderungen:  04.02.2021 Setup
 
-namespace Teilnehmer
+using System;
+
+namespace Teilnehmer.Model
 {
     public class Trainer : Teilnehmer
     {
@@ -32,10 +34,13 @@ namespace Teilnehmer
 
         public Trainer()
         {
+            this.Age = 0;
         }
 
         public Trainer(string name) : base(name)
         {
+             this.Age = 0;
+
         }
 
         public Trainer(string name, int age) : base(name)
@@ -50,6 +55,11 @@ namespace Teilnehmer
         public int HowOld()
         {
             return this.Age;
+        }
+
+        public override string GiveInfo()
+        {
+            return base.GiveInfo() + ", " + $"Age: {Age}";
         }
 
         #endregion

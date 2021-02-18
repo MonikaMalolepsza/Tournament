@@ -6,7 +6,9 @@
 //Beschreibung:
 //Aenderungen:  04.02.2021 Setup
 
-namespace Teilnehmer
+using System;
+
+namespace Teilnehmer.Model
 {
     public class Spieler : Teilnehmer
     {
@@ -37,10 +39,12 @@ namespace Teilnehmer
 
         public Spieler()
         {
+            this.Speed = 0;
         }
 
         public Spieler(string name) : base(name)
         {
+            this.Speed = 0;
         }
 
         public Spieler(string name, double speed, bool active) : base(name)
@@ -61,6 +65,11 @@ namespace Teilnehmer
         public void SwitchActive()
         {
             this.Active = !this.Active;
+        }
+
+        public override string GiveInfo()
+        {
+            return base.GiveInfo() + ", " + $"Speed: {Speed}" + ", " + $"{(Active ? "Ja" : "Nein")}";
         }
 
         #endregion

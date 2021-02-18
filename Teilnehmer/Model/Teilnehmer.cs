@@ -7,7 +7,9 @@
 //Aenderungen:  04.02.2021 Setup
 
 
-namespace Teilnehmer
+using System;
+
+namespace Teilnehmer.Model
 {
     public class Teilnehmer
     {
@@ -32,6 +34,7 @@ namespace Teilnehmer
 
                 public Teilnehmer()
                 {
+                    Name = "";
                 }
 
                 public Teilnehmer(string name)
@@ -43,9 +46,10 @@ namespace Teilnehmer
 
         #region Methods
 
-        public string GiveName()
+        public virtual string GiveInfo()
         {
             return this.Name;
+          // Console.WriteLine(this.Name);
         }
 
         #endregion

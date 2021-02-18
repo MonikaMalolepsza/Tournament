@@ -6,7 +6,9 @@
 //Beschreibung:
 //Aenderungen:  04.02.2021 Setup
 
-namespace Teilnehmer
+using System;
+
+namespace Teilnehmer.Model
 {
     public class Schiedsrichter : Teilnehmer
     {
@@ -38,10 +40,12 @@ namespace Teilnehmer
 
         public Schiedsrichter()
         {
+            this.Certificate = "";
         }
 
         public Schiedsrichter(string name) : base(name)
         {
+            this.Certificate = "";
         }
 
         public Schiedsrichter(string name, string certificate) : base(name)
@@ -58,6 +62,10 @@ namespace Teilnehmer
             return this.Certificate;
         }
 
+        public override string GiveInfo()
+        {
+            return base.GiveInfo() + ", " + $"Certificate: {Certificate}";
+        }
 
         #endregion
     }

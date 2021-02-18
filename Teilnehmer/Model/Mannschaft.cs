@@ -8,57 +8,59 @@
 
 using System.Collections.Generic;
 
-namespace Teilnehmer
+namespace Teilnehmer.Model
 {
     public class Mannschaft : Teilnehmer
     {
         #region Attributes
 
-        private List<Spieler> _team;
-        private Trainer _trainer;
+        private List<Teilnehmer> _team;
 
 
         #endregion
 
         #region Properties
 
-        public List<Spieler> Team
+        public List<Teilnehmer> Team
         {
             get => _team;
             set => _team = value;
-        }
-        public Trainer Trainer
-        {
-            get => _trainer;
-            set => _trainer = value;
         }
 
         #endregion
 
         #region Constructors
 
-        public Mannschaft(string name, Trainer t) : base(name)
+        public Mannschaft()
         {
-            Team = new List<Spieler>();
-            Trainer = t;
+            Team = new List<Teilnehmer>();
         }
-        
+
+        public Mannschaft(string name) : base(name)
+        {
+            Team = new List<Teilnehmer>();
+        }
+
+        public Mannschaft(string name, List<Teilnehmer> team) : base(name)
+        {
+            Team = team;
+        }
 
         #endregion
 
         #region Methods
 
-        public void NeueMietglied(Spieler spieler)
+        public void NeueMietglied(Teilnehmer teilnehmer)
         {
-            Team.Add(spieler);
+            Team.Add(teilnehmer);
         }
 
         public string AusgabeMannschaftsInformationen()
         {
             string res = $"Mannschaft: {Name}\r\n";
-            foreach (Spieler s in Team)
+            foreach (Teilnehmer t in Team)
             {
-                res += $"Name: {s.Name}\r\nSpeed: {s.Speed}\r\nSpielt gerade?: {(s.Active ? "Ja" : "Nein")}";
+                res += t.GiveInfo();
             }
             return res;
         }

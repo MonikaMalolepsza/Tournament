@@ -6,7 +6,7 @@
 //Beschreibung:
 //Aenderungen:  04.02.2021 Setup
 
-namespace Teilnehmer
+namespace Teilnehmer.Model
 {
     public class Materialwart : Teilnehmer
     {

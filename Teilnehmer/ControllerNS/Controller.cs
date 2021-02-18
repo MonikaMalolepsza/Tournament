@@ -61,13 +61,22 @@ namespace Teilnehmer.ControllerNS
 
         public Controller()
         {
+            Mannschaft = new Mannschaft();
+            Spieler = new Spieler();
+            Physio = new Physio();
+            Trainer = new Trainer();
+            Schiedsrichter = new Schiedsrichter();
+            UserInterface = new UserInterface();
         }
 
-        public Controller( Mannschaft team, Trainer trainer, Schiedsrichter schiedsrichter)
+        public Controller( Mannschaft team, Trainer trainer, Schiedsrichter schiedsrichter, UserInterface ui, Spieler spieler, Physio physio)
         {
             Mannschaft = team;
+            Spieler = spieler;
+            Physio = physio;
             Trainer = trainer;
             Schiedsrichter = schiedsrichter;
+            UserInterface = ui;
         }
 
         #endregion
@@ -80,11 +89,12 @@ namespace Teilnehmer.ControllerNS
             Trainer t = new Trainer("Thomas", 50);
             Physio p = new Physio("Monika", 2);
             Mannschaft m = new Mannschaft("FC Koeln");
+            UserInterface ui = new UserInterface();
             m.NeueMietglied(s);
             m.NeueMietglied(t);
             m.NeueMietglied(p);
-            UserInterface.WriteText(m.AusgabeMannschaftsInformationen());
-            UserInterface.ReadText();
+            ui.WriteText(m.AusgabeMannschaftsInformationen());
+            ui.ReadText();
         }
 
         #endregion

@@ -21,6 +21,20 @@ namespace Teilnehmer.View
 
         #region Constructors
 
+        public UserInterface()
+        {
+            this.Text = "";
+        }
+
+        public UserInterface(string text)
+        {
+            this.Text = text;
+        }
+
+        #endregion
+
+        #region Methods
+
         public void ReadText()
         {
             Console.WriteLine(Text);
@@ -29,10 +43,6 @@ namespace Teilnehmer.View
         {
             Text = text;
         }
-
-        #endregion
-
-        #region Methods
 
         #endregion
     }

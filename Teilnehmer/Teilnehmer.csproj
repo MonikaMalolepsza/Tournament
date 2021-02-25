@@ -46,6 +46,7 @@
   <ItemGroup>
     <Content Include="Database\data.sql" />
     <Content Include="Database\docker-compose.yml" />
+    <Content Include="Database\query.sql" />
     <Content Include="Database\turnierverwaltung_schema.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -97,6 +97,8 @@ namespace Teilnehmer.ControllerNS
             ui.ReadText();
         }
 
+
+
         #endregion
     }
 }

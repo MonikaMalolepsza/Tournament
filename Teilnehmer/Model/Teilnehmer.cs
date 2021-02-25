@@ -8,10 +8,11 @@
 
 
 using System;
+using System.Resources;
 
 namespace Teilnehmer.Model
 {
-    public class Teilnehmer
+    public abstract class Teilnehmer
     {
         #region Attributes
 
@@ -50,6 +51,11 @@ namespace Teilnehmer.Model
         {
             return this.Name;
           // Console.WriteLine(this.Name);
+        }
+
+        public virtual void save()
+        {
+
         }
 
         #endregion

@@ -9,11 +9,10 @@ CREATE TABLE `tournament`.`participant` (
 
 CREATE TABLE `tournament`.`team` (
                                      `id` INT(11) NOT NULL AUTO_INCREMENT,
-                                     `name` VARCHAR(50) NULL DEFAULT NULL,
                                      PRIMARY KEY (`id`),
-                                    `participant_id` INT(11) NULL DEFAULT NULL,
-                                    INDEX `fk_participant` (`participant_id`),
-                                    CONSTRAINT `fk_participant` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`)
+                                     `participant_id` INT(11) NULL DEFAULT NULL,
+                                     INDEX `fk_participant` (`participant_id`),
+                                     CONSTRAINT `fk_participant` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`)
 );
 
 CREATE TABLE `tournament`.`referee` (
@@ -22,8 +21,8 @@ CREATE TABLE `tournament`.`referee` (
                                         `certificate` VARCHAR(255) NULL,
                                         PRIMARY KEY (`id`),
                                         `participant_id` INT(11) NULL DEFAULT NULL,
-                                        INDEX `fk_participant` (`participant_id`),
-                                        CONSTRAINT `fk_participant` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`)
+                                        INDEX `fk_referee_participant` (`participant_id`),
+                                        CONSTRAINT `fk_referee_participant` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`)
 );
 
 CREATE TABLE `tournament`.`player` (
@@ -35,10 +34,9 @@ CREATE TABLE `tournament`.`player` (
                                        `participant_id` INT(11) NULL DEFAULT NULL,
                                        INDEX `fk_player_participant` (`participant_id`),
                                        CONSTRAINT `fk_player_participant` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`),
-                                           `team_id` INT(11) NULL DEFAULT NULL,
+                                       `team_id` INT(11) NULL DEFAULT NULL,
                                        INDEX `fk_player_team` (`team_id`),
                                        CONSTRAINT `fk_player_team` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`)
-
 );
 
 CREATE TABLE `tournament`.`trainer` (
@@ -49,8 +47,9 @@ CREATE TABLE `tournament`.`trainer` (
                                         `participant_id` INT(11) NULL DEFAULT NULL,
                                         INDEX `fk_trainer_participant` (`participant_id`),
                                         CONSTRAINT `fk_trainer_participant` FOREIGN KEY (`participant_id`) REFERENCES `participant` (`id`),
-                                            `team_id` INT(11) NULL DEFAULT NULL,
+                                        `team_id` INT(11) NULL DEFAULT NULL,
                                         INDEX `fk_trainer_team` (`team_id`),
                                         CONSTRAINT `fk_trainer_team` FOREIGN KEY (`team_id`) REFERENCES `team` (`id`)
 
 );
+
